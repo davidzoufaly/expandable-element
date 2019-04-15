@@ -9,11 +9,11 @@
     <title>Expandable Element</title>
   </head>
   <body>
-    <div class="container">
-      <h1 class="container__title" id="toggle-content-title">
+    <div class="container" role="main">
+      <h1 class="container__title" id="toggle-content-title" accesskey="t" title="Clickable element for information about terms and conditions">
         Terms and Conditions<span class="container__title__icon"></span>
       </h1>
-      <div id="content" class="content"></div>
+      <div id="content" class="content" aria-hidden="true"></div>
     </div>
 
     <script src="./src/javascript/index.js"></script>

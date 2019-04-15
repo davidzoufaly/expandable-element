@@ -10,30 +10,37 @@ let opacity;
 const fadeFunction = el => {
   if (opacity < 0.9) {
     opacity += 0.1;
-    setTimeout(() => fadeFunction(el), 50);
+    setTimeout(() => fadeFunction(el), 30);
   }
   el.style.opacity = opacity;
 };
 
 //! Universal method for content toggle - show / hide
 const toggleContent = (text, elementInDOM) => {
-  // Return statement of this function with ternary operator.
-  return (
-    // If element does not have children (is empty) add content into DOM...
-    elementInDOM.children.length === 0
-      ? ((elementInDOM.innerHTML = `<div>
-                    <p>${text}</p>
-                </div>`),
-        //...and show with fade effect
-        (opacity = 0),
-        fadeFunction(elementInDOM))
-      : // Otherwise remove it from DOM
-        elementInDOM.removeChild(elementInDOM.childNodes[0])
-  );
+  // Return statement of this function with if statement.
+  if (elementInDOM.children.length === 0) {
+    // 1a) If element does not have children (is empty) add content into DOM
+    return (
+      (elementInDOM.innerHTML = `<div>
+                      <p>${text}</p>
+                  </div>`),
+      // 2a) Show it with fade effect
+      (opacity = 0),
+      fadeFunction(elementInDOM),
+      // 3a) Made element accessible by assistive technology
+      elementInDOM.setAttribute("aria-hidden", "false")
+    );
+  } else {
+    return (
+      // 1b) Otherwise remove it from DOM and made it ignored by assistive technology
+      elementInDOM.setAttribute("aria-hidden", "true"),
+      elementInDOM.removeChild(elementInDOM.childNodes[0])
+    );
+  }
 };
 
 //! Handling CSS keyframe based animation with classes
-function handlingAnimation(icon) {
+const handlingAnimation = icon => {
   if (icon.contains("container__title__icon--animation--forward")) {
     icon.toggle("container__title__icon--animation--back");
     setTimeout(() => {
@@ -46,7 +53,7 @@ function handlingAnimation(icon) {
   } else {
     icon.toggle("container__title__icon--animation--forward");
   }
-}
+};
 
 //! Destructuring data object
 const { text, DOMElement } = contentData;

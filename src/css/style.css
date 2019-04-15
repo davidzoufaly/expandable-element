@@ -1,75 +1,80 @@
-@import './normalize.css';
+@import "./normalize.css";
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #fafafa;
+  font-family: "Roboto", sans-serif;
+  background-color: #fafafa;
 }
 
 .container {
-    position: absolute;
-    width: auto;
-    min-width: 10rem;
-    left: 50%;
-    transform: translate(-50%);
-    text-align: center;
-    margin-top: 5rem;
+  position: absolute;
+  width: auto;
+  min-width: 10rem;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  margin-top: 5rem;
 }
 
 .container__title {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    padding-right: .5rem;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  padding-right: 0.5rem;
+}
+
+.container__title:hover {
+  text-decoration: underline;
 }
 
 .container__title__icon {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    right: -30px;
-    top: 50%;
-    transform: translate(0, -50%);
-    background: transparent url('../icons/chevron-right.svg') no-repeat center center;
-    background-size: contain;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: -30px;
+  top: 50%;
+  transform: translate(0, -50%);
+  background: transparent url("../icons/chevron-right.svg") no-repeat center
+    center;
+  background-size: contain;
 }
 
 .container__title__icon--animation--forward {
-    animation: rotateForwards forwards .3s ease-in-out;
+  animation: rotateForwards forwards 0.3s ease-in-out;
 }
 
 .container__title__icon--animation--back {
-    animation: rotateBack forwards .3s ease-in-out;
+  animation: rotateBack forwards 0.3s ease-in-out;
 }
 
-@keyframes rotateForwards{
-    from {
-        transform: translate(0, -50%);
-    }
-    to {
-        transform: translate(0, -50%) rotate(90deg);
-    }
+@keyframes rotateForwards {
+  from {
+    transform: translate(0, -50%);
+  }
+  to {
+    transform: translate(0, -50%) rotate(90deg);
+  }
 }
 
-@keyframes rotateBack{
-    from {
-        transform: translate(0, -50%) rotate(90deg);
-    }
-    to {
-        transform: translate(0, -50%);
-    }
+@keyframes rotateBack {
+  from {
+    transform: translate(0, -50%) rotate(90deg);
+  }
+  to {
+    transform: translate(0, -50%);
+  }
 }
 
 .content {
-    position: absolute;
-    transform: translate(-50%, 0);
-    display: inline-block;
+  position: absolute;
+  transform: translate(-50%, 0);
+  display: inline-block;
 }
 
 .content > div {
-    width: 14rem;
-    padding: 1rem;
-    margin-top: 1rem;
-    background-color: #fff;
+  width: 14rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  background-color: #fff;
 }
