@@ -1,8 +1,17 @@
 @import "./normalize.css";
 
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://fonts.googleapis.com/css?family=Roboto") format("woff2");
+  font-display: swap;
+}
+
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", Helvetica, sans-serif;
   background-color: #fafafa;
+  font-display: swap;
 }
 
 .container {
