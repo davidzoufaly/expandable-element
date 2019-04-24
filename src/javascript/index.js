@@ -2,7 +2,7 @@
 const contentData = {
   text:
     "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer imperdiet lectus quis justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent dapibus. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Nullam sit amet magna in magna gravida vehicula. Phasellus enim erat, vestibulum vel, aliquam a, posuere eu, velit. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
-  DOMElement: document.querySelector("#content-id"),
+  DOMPlaceHolderElement: document.querySelector("#content-id"),
   DOMTriggerElement: document.querySelector("#toggle-content-title")
 };
 
@@ -41,7 +41,7 @@ const toggleContent = (text, elementInDOM) => {
 };
 
 //! Handling CSS keyframe based animation with classes
-const handlingAnimation = icon => {
+const handlingIconAnimations = icon => {
   if (icon.contains("container__title__icon--animation--forward")) {
     icon.toggle("container__title__icon--animation--back");
     setTimeout(() => {
@@ -57,7 +57,7 @@ const handlingAnimation = icon => {
 };
 
 //! Destructuring data object
-const { text, DOMElement, DOMTriggerElement } = contentData;
+const { text, DOMPlaceHolderElement, DOMTriggerElement } = contentData;
 
 //! Handling clicks on title
 // 1) Select our title element in DOM
@@ -65,6 +65,6 @@ DOMTriggerElement
   // 2) Add event listener with click trigger
   .addEventListener("click", () => {
     // 3) callback fucntion running toggleContent method with our data passed as parameters and hadnlingAmination method with our span passed as parameter
-    toggleContent(text, DOMElement), false;
-    handlingAnimation(this.childNodes[1].classList);
+    toggleContent(text, DOMPlaceHolderElement), false;
+    handlingIconAnimations(this.childNodes[1].classList);
   });
