@@ -1,6 +1,6 @@
 # Expendable element
 
-Pure Vanilla Javascript/HTML5/CSS3 coded expendable element with content passed from JS
+Pure Vanilla Javascript/HTML5/CSS3 coded expendable element with content passed from JS.
 
 ## Installing
 
